@@ -24,7 +24,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost:8080/';
+    public $baseURL = 'http://localhost:81/CI4-sakila-app/public/';
 
     /**
      * --------------------------------------------------------------------------
