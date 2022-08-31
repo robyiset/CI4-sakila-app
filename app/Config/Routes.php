@@ -41,7 +41,7 @@ $routes->get('FilmForm/', 'FilmForm::index');
 
 $routes->get('FilmForm/(:segment)/preview', 'FilmForm::preview/$1');
 $routes->add('FilmForm/', 'FilmForm::create');
-$routes->add('FilmForm/(:segment)/preview', 'FilmForm::edit/$1');
+$routes->add('FilmForm/(:segment)/edit', 'FilmForm::edit/$1');
 $routes->get('/(:segment)/delete', 'Home::delete/$1');
 
 

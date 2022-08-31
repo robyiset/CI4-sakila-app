@@ -170,14 +170,14 @@ class FilmForm extends BaseController
             ]);
 
             $film_category = new film_category();
-
+            $film_category->where('film_id', $id)->delete();
             $film_category->insert([
                 'film_id' => $id,
                 'category_id' => $this->request->getPost('category_id'),
             ]);
 
             $film_actor = new film_actor();
-            $film_actor->delete($id);
+            $film_actor->where('film_id', $id)->delete();
             foreach ($this->request->getPost('actor_id') as $actor_id) {
 
                 $film_actor->insert([

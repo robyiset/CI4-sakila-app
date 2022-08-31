@@ -25,9 +25,9 @@ class Home extends BaseController
         $film = new film();
         $film_category = new film_category();
         $film_actor = new film_actor();
-        $film->delete($id);
-        $film_category->delete($id);
-        $film_actor->delete($id);
+        $film->where('film_id', $id)->delete();
+        $film_category->where('film_id', $id)->delete();
+        $film_actor->where('film_id', $id)->delete();
         return redirect('home');
     }
 }

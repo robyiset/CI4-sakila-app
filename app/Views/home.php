@@ -98,7 +98,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
+                            <a class="btn btn-danger" href="<?= base_url('/' . $list['FID'] . '/delete') ?>">Delete</a>
                         </div>
                     </div>
                 </div>

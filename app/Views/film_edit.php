@@ -13,7 +13,7 @@
 </header>
 
 <div class="container">
-    <form action="" method="post" id="film-form">
+    <form action="<?= base_url('FilmForm/' . $film_list['FID'] . '/edit') ?>" method="post" id="film-form">
         <div class="row">
             <div class="row ">
                 <input class="hidden" type="hidden" id="fid" name="FID" value="<?= $film_list['FID'] ?>" />
