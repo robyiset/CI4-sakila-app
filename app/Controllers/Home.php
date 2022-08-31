@@ -3,21 +3,19 @@
 namespace App\Controllers;
 
 use App\Models\context\Views\film_list;
-use App\Models\context\Tables\category;
-use App\Models\context\Tables\actor;
+
+use App\Models\context\Tables\film;
+use App\Models\context\Tables\film_actor;
+use App\Models\context\Tables\film_category;
 
 class Home extends BaseController
 {
     public function index()
     {
         $list = new film_list();
-        $category = new category();
-        $actor = new actor();
         //$data['film_list'] = $list->paginate(9);
         $data = [
             'film_list' => $list->paginate(9, 'film_list'),
-            'category' => $category->findAll(),
-            'actor' => $actor->findAll(),
             'pager' => $list->pager
         ];
         return view('home', $data);
@@ -25,8 +23,12 @@ class Home extends BaseController
 
     public function delete($id)
     {
-        $list = new film_list();
-        $list->delete($id);
+        $film = new film();
+        $film_category = new film_category();
+        $film_actor = new film_actor();
+        $film->delete($id);
+        $film_category->delete($id);
+        $film_actor->delete($id);
         return redirect('home');
     }
 }
