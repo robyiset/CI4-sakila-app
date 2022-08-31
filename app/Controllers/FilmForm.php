@@ -11,6 +11,8 @@ use App\Models\context\Tables\film_category;
 use App\Models\context\Tables\category;
 use App\Models\context\Tables\actor;
 
+use CodeIgniter\Exceptions\PageNotFoundException;
+
 class FilmForm extends BaseController
 {
     public function index()
@@ -29,9 +31,15 @@ class FilmForm extends BaseController
     public function preview($id)
     {
         $list = new film_list();
+        $check['film_list'] = $list->where('FID', $id)->first();
+        if (!$check['film_list']) {
+            throw PageNotFoundException::forPageNotFound();
+        }
+
         $category = new category();
         $language = new language();
         $actor = new actor();
+
         $data = [
             'film_list' => $list->where('FID', $id)->first(),
             'language' => $language->findAll(),

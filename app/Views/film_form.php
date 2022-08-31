@@ -13,7 +13,7 @@
 </header>
 
 <div class="container">
-    <form action="" method="post" id="film-form">
+    <form action="<?= base_url('FilmForm/edit') ?>" method="post" id="film-form">
         <div class="row">
             <div class="row ">
                 <div class="mb-3">
