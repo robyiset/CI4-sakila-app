@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="category" class="form-label">Category:</label>
-                    <select class="form-select" aria-label="Add film category" name="category" id="category" required>
+                    <select class="form-select" aria-label="Add film category" name="category_id" id="category_id" required>
                         <option disabled selected>Select Category</option>
                         <?php foreach ($category as $item) : ?>
                             <option value="<?= $item['category_id'] ?>"><?= $item['name'] ?></option>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="rating" class="form-label">Rating:</label>
-                    <select class="form-select" aria-label="Add fil rating" required>
+                    <select class="form-select" aria-label="Add fil rating" name="rating" required>
                         <option disabled selected>Select Rating</option>
                         <option value="G">G</option>
                         <option value="PG">PG</option>
@@ -64,7 +64,7 @@
                     <label for="price" class="form-label">Price:</label>
                     <div class="input-group mb-3">
                         <span class="input-group-text">$</span>
-                        <input type="number" step=".01" min="0.01" class="form-control" aria-label="Film price" name="price" id="price" required>
+                        <input type="number" step=".01" min="0.01" class="form-control" aria-label="Film price" name="rental_rate" id="rental_rate" required>
                     </div>
 
                 </div>

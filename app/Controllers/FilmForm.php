@@ -47,15 +47,15 @@ class FilmForm extends BaseController
         $validation =  \Config\Services::validation();
         $validation->setRules([
             'title' => 'required',
-            'description' => 'required',
-            'release_year' => 'required',
             'language_id' => 'required',
-            'price' => 'required',
+            'release_year' => 'required',
+            'description' => 'required',
+            'rental_rate' => 'required',
             'length' => 'required',
             'rating' => 'required',
 
             'category_id' => 'required',
-            'actor_id' => 'required'
+            //'actor_id' => 'required'
         ]);
 
         $isDataValid = $validation->withRequest($this->request)->run();
@@ -68,7 +68,7 @@ class FilmForm extends BaseController
                 "description" => $this->request->getPost('description'),
                 "release_year" => $this->request->getPost('release_year'),
                 "language_id" => $this->request->getPost('language_id'),
-                "price" => $this->request->getPost('price'),
+                "rental_rate" => $this->request->getPost('rental_rate'),
                 "length" => $this->request->getPost('length'),
                 "rating" => $this->request->getPost('rating')
             ]);
@@ -77,7 +77,7 @@ class FilmForm extends BaseController
             $film_category = new film_category();
             $film_category->insert([
                 'film_id' => $film_id,
-                'category_id' => $this->request->getPost('rating'),
+                'category_id' => $this->request->getPost('category_id'),
             ]);
 
             $film_actor = new film_actor();
@@ -88,11 +88,24 @@ class FilmForm extends BaseController
                 ]);
             }
 
-            return redirect('home');
+            $list = new film_list();
+            $data = [
+                'film_list' => $list->paginate(9, 'film_list'),
+                'pager' => $list->pager
+            ];
+            return redirect('Home', $data);
         }
 
         // tampilkan form create
-        echo view('film_form');
+        $category = new category();
+        $language = new language();
+        $actor = new actor();
+        $data = [
+            'language' => $language->findAll(),
+            'category' => $category->findAll(),
+            'actor' => $actor->findAll()
+        ];
+        echo view('film_form', $data);
     }
 
 
@@ -126,12 +139,12 @@ class FilmForm extends BaseController
             'description' => 'required',
             'release_year' => 'required',
             'language_id' => 'required',
-            'price' => 'required',
+            'rental_rate' => 'required',
             'length' => 'required',
             'rating' => 'required',
 
             'category_id' => 'required',
-            'actor_id' => 'required'
+            //'actor_id' => 'required'
         ]);
 
         $isDataValid = $validation->withRequest($this->request)->run();
@@ -143,7 +156,7 @@ class FilmForm extends BaseController
                 "description" => $this->request->getPost('description'),
                 "release_year" => $this->request->getPost('release_year'),
                 "language_id" => $this->request->getPost('language_id'),
-                "price" => $this->request->getPost('price'),
+                "rental_rate" => $this->request->getPost('rental_rate'),
                 "length" => $this->request->getPost('length'),
                 "rating" => $this->request->getPost('rating')
             ]);
@@ -152,7 +165,7 @@ class FilmForm extends BaseController
 
             $film_category->insert([
                 'film_id' => $id,
-                'category_id' => $this->request->getPost('rating'),
+                'category_id' => $this->request->getPost('category_id'),
             ]);
 
             $film_actor = new film_actor();

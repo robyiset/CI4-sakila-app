@@ -13,7 +13,6 @@ class Home extends BaseController
     public function index()
     {
         $list = new film_list();
-        //$data['film_list'] = $list->paginate(9);
         $data = [
             'film_list' => $list->paginate(9, 'film_list'),
             'pager' => $list->pager
