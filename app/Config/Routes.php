@@ -40,9 +40,9 @@ $routes->get('/', 'Home::index');
 $routes->get('FilmForm/', 'FilmForm::index');
 
 $routes->get('FilmForm/(:segment)/preview', 'FilmForm::preview/$1');
-$routes->add('/new', 'NewsAdmin::create');
-$routes->add('/(:segment)/edit', 'NewsAdmin::edit/$1');
-$routes->get('/(:segment)/delete', 'NewsAdmin::delete/$1');
+$routes->add('FilmForm/', 'FilmForm::create');
+$routes->add('FilmForm/(:segment)/edit', 'FilmForm::edit/$1');
+$routes->get('/(:segment)/delete', 'Home::delete/$1');
 
 
 $routes->get('/FilmList', 'FilmList::index');
