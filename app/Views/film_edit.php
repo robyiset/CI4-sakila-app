@@ -13,7 +13,7 @@
 </header>
 
 <div class="container">
-    <form action="<?= base_url('FilmForm/edit') ?>/<?= $film_list['FID'] ?>" method="post" id="film-form">
+    <form action="" method="post" id="film-form">
         <div class="row">
             <div class="row ">
                 <input class="hidden" type="hidden" id="fid" name="fid" value="<?= $film_list['FID'] ?>" />
@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="Language" class="form-label">Language:</label>
-                    <select class="form-select" aria-label="Add film language" name="language" id="language" required>
+                    <select class="form-select" aria-label="Add film language" name="language_id" id="language" required>
                         <option disabled selected>Select Language</option>
                         <?php foreach ($language as $item) : ?>
                             <option value="<?= $item['language_id'] ?>" <?php if ($film_list['language_id'] == $item['language_id']) { ?> selected <?php } ?>><?= $item['name'] ?></option>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="category" class="form-label">Category:</label>
-                    <select class="form-select" aria-label="Add film category" name="category" id="category" required>
+                    <select class="form-select" aria-label="Add film category" name="category_id" id="category" required>
                         <?php foreach ($category as $item) : ?>
                             <option value="<?= $item['category_id'] ?>" <?php if ($film_list['category_id'] == $item['category_id']) { ?> selected <?php } ?>><?= $item['name'] ?></option>
                         <?php endforeach ?>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="rating" class="form-label">Rating:</label>
-                    <select class="form-select" aria-label="Add fil rating" required>
+                    <select class="form-select" aria-label="Add fil rating" name="rating" required>
                         <option value="G" <?php if ($film_list['rating'] == 'G') { ?> selected <?php } ?>>G</option>
                         <option value="PG" <?php if ($film_list['rating'] == 'PG') { ?> selected <?php } ?>>PG</option>
                         <option value="PG-13" <?php if ($film_list['rating'] == 'PG-13') { ?> selected <?php } ?>>PG-13</option>
@@ -63,7 +63,7 @@
                     <label for="price" class="form-label">Price:</label>
                     <div class="input-group mb-3">
                         <span class="input-group-text">$</span>
-                        <input type="number" step=".01" min="0.01" class="form-control" aria-label="Film price" name="price" id="price" value="<?= $film_list['price'] ?>" required>
+                        <input type="number" step=".01" min="0.01" class="form-control" aria-label="Film price" name="rental_rate" id="rental_rate" value="<?= $film_list['price'] ?>" required>
                     </div>
 
                 </div>
