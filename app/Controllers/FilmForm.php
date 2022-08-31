@@ -144,9 +144,9 @@ class FilmForm extends BaseController
         $validation->setRules([
             'FID' => 'required',
             'title' => 'required',
-            'description' => 'required',
-            'release_year' => 'required',
             'language_id' => 'required',
+            'release_year' => 'required',
+            'description' => 'required',
             'rental_rate' => 'required',
             'length' => 'required',
             'rating' => 'required',

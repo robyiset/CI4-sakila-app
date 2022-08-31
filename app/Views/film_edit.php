@@ -16,7 +16,7 @@
     <form action="" method="post" id="film-form">
         <div class="row">
             <div class="row ">
-                <input class="hidden" type="hidden" id="fid" name="fid" value="<?= $film_list['FID'] ?>" />
+                <input class="hidden" type="hidden" id="fid" name="FID" value="<?= $film_list['FID'] ?>" />
                 <div class="mb-3">
                     <label for="title" class="form-label">Title:</label>
                     <input type="text" class="form-control" id="title" name="title" value="<?= $film_list['title'] ?>" required />
