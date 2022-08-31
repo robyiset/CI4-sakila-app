@@ -81,6 +81,14 @@
                     <?php endforeach ?>
                 </select>
             </div>
+            <div class="row">
+                <div class="position-relative mt-3 mr-3">
+                    <div class="col-auto position-absolute end-0">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </form>
 </div>

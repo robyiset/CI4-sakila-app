@@ -72,7 +72,7 @@
                 <label for="description" class="form-label">Description</label>
                 <textarea style="resize: none;" class="form-control" id="description" name="description" rows="3"><?= $film_list['description'] ?></textarea>
             </div>
-            <div class="mb-3">
+            <div class="mb-5">
                 <label for="actor_id" class="form-label">Actors:</label>
                 <select style="width: 100%;" class="select2" name="actor_id[]" multiple="multiple">
                     <?php foreach ($actor as $item) : ?>
@@ -82,6 +82,7 @@
                     <?php endforeach ?>
                 </select>
             </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
 </div>
