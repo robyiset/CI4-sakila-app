@@ -177,7 +177,7 @@ class FilmForm extends BaseController
                     'film_id' => $id
                 ]);
             }
-            return redirect('home', $data);
+            return redirect('Home', $data);
         }
 
         return view('film_edit', $data_edit);
