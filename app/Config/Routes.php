@@ -37,6 +37,25 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->get('FilmForm/', 'FilmForm::index');
+
+$routes->get('FilmForm/(:segment)/preview', 'FilmForm::preview/$1');
+$routes->add('/new', 'NewsAdmin::create');
+$routes->add('/(:segment)/edit', 'NewsAdmin::edit/$1');
+$routes->get('/(:segment)/delete', 'NewsAdmin::delete/$1');
+
+
+$routes->get('/FilmList', 'FilmList::index');
+
+// $routes->get('/customer_list', 'customer_list::index');
+// $routes->get('/nicer_but_slower_film_list', 'nicer_but_slower_film_list::index');
+// $routes->get('/staff_list', 'staff_list::index');
+// $routes->get('/sales_by_store', 'sales_by_store::index');
+// $routes->get('/sales_by_film_category', 'sales_by_film_category::index');
+
+
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
